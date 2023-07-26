@@ -1,23 +1,24 @@
-# IK/ID [![Build Status](https://travis-ci.com/p-morais/cassie-ik-id.svg?branch=master)](https://travis-ci.com/p-morais/cassie-ik-id) [![Documentation Status](https://readthedocs.org/projects/cassie-ik-id/badge/?version=latest)](https://cassie-ik-id.readthedocs.io/en/latest/?badge=latest)
+# Cassie Control
 
-This repository will contain code for inverse kinematics and inverse dynamics of a Cassie robot, mainly using MuJoCo and Eigen. Additional information about the math behind the code can be found in the [docs](https://cassie-ik-id.readthedocs.io/en/latest/) which contain nicely formatted LaTeX equations.
 
-### Installation 
+Credit to [Cassie IK/ID](https://github.com/p-morais/cassie-ik-id/tree/master) for the most part of code.
+This repository contains the code for inverse kinematics and inverse dynamics of a Cassie robot, mainly using MuJoCo and Eigen.
 
-This repo is set-up to be built using [Bazel](https://docs.bazel.build/versions/master/install.html) (currently 1.1.0). To install the project dependencies (including bazel) run:
+### Installation
+
+To setup the project, you will need to install Bazel in your system. You can find instructions [here](https://docs.bazel.build/versions/master/install.html).
+
+After installing Bazel, you will need to install the dependencies. You can do this by running the following command:
+
+```bash
+bazel build src/...
 ```
-$ ./scripts/install-dependencies.sh
-```
-Then to build the project run:
+Bazel will automatically download Mujoco and build Eigen for you.
 
-```
-$ bazel build //src/...
-```
+### Running the code
 
-Similarly, to run a demo, run:
+To run the code, you can use the following command:
 
+```bash
+bazel run src:main
 ```
-$ bazel run //src:main
-```
-
-Bazel will automatically download Eigen and MuJoCo, but you will still need a MuJoCo license under ```~/.mujoco/mjkey.txt``` to run the code.

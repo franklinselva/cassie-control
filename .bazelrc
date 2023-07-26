@@ -1,0 +1,4 @@
+build --cxxopt='-std=c++17'
+
+# Uncomment this to default to debug builds
+# build --compilation_mode=dbg 
