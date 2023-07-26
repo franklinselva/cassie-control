@@ -11,7 +11,7 @@ To setup the project, you will need to install Bazel in your system. You can fin
 After installing Bazel, you will need to install the dependencies. You can do this by running the following command:
 
 ```bash
-bazel build src/...
+bazel build --enable_bzlmod src/...
 ```
 Bazel will automatically download Mujoco and build Eigen for you.
 

@@ -1,8 +1,5 @@
-cc_library(
-    name = "mujoco",
-    hdrs = glob(["include/*.h"]),
-    srcs = glob(["build/lib/*.so"]),
-    includes = ["include"],
+filegroup(
+    name = "all_srcs",
+    srcs = glob(["**"]),
     visibility = ["//visibility:public"],
-    alwayslink = 1,
 )
