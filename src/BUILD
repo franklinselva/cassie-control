@@ -3,7 +3,7 @@ cc_binary(
     srcs = ["main.cpp"],
     copts = ["-Iexternal/mujoco/include"],
     data = ["//assets:assets"],
-    linkopts = ["-lGL -lpthread"],
+    linkopts = ["-lpthread"],
     deps = [
         "//src/render:render",
         "@mujoco",

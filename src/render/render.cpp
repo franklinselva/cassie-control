@@ -1,5 +1,5 @@
-#include <GLFW/glfw3.h>
 #include "render.hpp"
+#include <GLFW/glfw3.h>
 
 #include <thread>
 #include <mutex>
@@ -79,8 +79,7 @@ void render(const mjModel *model, mjData *data, std::mutex &mtx)
 
     if (!glfwInit())
     {
-        third_party /
-                std::cerr
+        std::cerr
             << "Could not initialize GLFW" << std::endl;
         exit(-1);
     }

@@ -1,6 +1,6 @@
 #include "render/render.hpp"
 
-#include "mujoco.h"
+#include "mujoco/mujoco.h"
 #include <Eigen/Dense>
 
 #include <iostream>
@@ -64,32 +64,6 @@ typedef Eigen::Map<
     {                                                                                \
         std::cout << #mat << ": " << mat.rows() << " x " << mat.cols() << std::endl; \
     } while (0)
-
-void activate_mujoco()
-{
-    std::string mjkeyPath;
-
-    char *home = std::getenv("HOME");
-    if (!home)
-    {
-        std::cerr << "Error: home directory not found" << std::endl;
-        exit(-1);
-    }
-
-    mjkeyPath += std::string(home) + "/.mujoco/mjkey.txt";
-    mj_activate(mjkeyPath.c_str());
-
-    char error[1000] = "";
-    m = mj_loadXML("assets/cassie_leg_planar_fixed_rigid.xml", NULL, error, 1000);
-
-    if (!m)
-    {
-        std::cerr << error << std::endl;
-        exit(-1);
-    }
-
-    d = mj_makeData(m);
-}
 
 // Splits dof indices into independent and dependent dofs
 // "Independent" is (arbitrarily) defined relative to actuated joints
@@ -223,8 +197,6 @@ Eigen::MatrixXd constrainedInverseDynamics(const mjModel *m, mjData *d, const Ei
 
 int main()
 {
-    activate_mujoco();
-
     // double qpos_init[] = {
     //      0.0045, 0, 0.4973, 0.9785, -0.0164,  0.0178, -0.2049,
     //     -1.1997, 0, 1.4267, 0,      -1.5244,  1.5244, -1.5968,
@@ -247,7 +219,7 @@ int main()
 
     mj_forward(m, d);
 
-    double weight = mj_getTotalmass(m) * 9.806;
+    // double weight = mj_getTotalmass(m) * 9.806;
 
     std::thread render_thread(render, m, d, std::ref(mtx));
 
