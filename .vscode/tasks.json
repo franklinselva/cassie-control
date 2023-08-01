@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [{
         "label": "bazel-debug-build",
-        "command": "bazel build --compilation_mode=dbg //src/...",
+        "command": "bazel build --compilation_mode=dbg --enable_bzlmod //control/...",
         "type": "shell"
     }]
 }

@@ -5,7 +5,7 @@ cc_binary(
     data = ["//assets:assets"],
     linkopts = ["-lpthread"],
     deps = [
-        "//src/render:render",
+        "//control/render:render",
         "@mujoco",
         "@eigen",
     ],
