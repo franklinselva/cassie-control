@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
     {
-        "name": "(gdb) Launch",
+        "name": "(gdb) Launch Main",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/bazel-bin/src/main",
+        "program": "${workspaceFolder}/bazel-bin/control/main",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
@@ -24,5 +24,25 @@
         ],
         "preLaunchTask": "bazel-debug-build"
     },
+    {
+        "name": "(gbd) Launch Render Main",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/bazel-bin/control/render/render_model",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb",
+        "setupCommands": [
+            {
+                "description": "Enable pretty-printing for gdb",
+                "text": "-enable-pretty-printing",
+                "ignoreFailures": true
+            }
+        ],
+        "preLaunchTask": "bazel-debug-build"
+    }
     ]
 }
