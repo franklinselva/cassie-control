@@ -122,11 +122,7 @@ void render(const mjModel *model, mjData *data, std::mutex &mtx)
         // Critical section because mjv_updateScene writes to mjData
         {
             std::lock_guard lock(mtx);
-            std::cout << "Before mjv_updateScene" << std::endl;
-            std::cout << "model: " << model << std::endl;
-            std::cout << "data: " << data << std::endl;
             mjv_updateScene(model, data, &opt, NULL, &cam, mjCAT_ALL, &scn);
-            std::cout << "After mjv_updateScene" << std::endl;
         }
 
         // Render

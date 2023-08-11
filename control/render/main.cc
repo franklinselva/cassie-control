@@ -10,8 +10,19 @@ static std::mutex mtx;
 int main(int argc, const char **argv)
 {
     // Load the MuJoCo model
-    mjModel *model = mj_loadXML("/home/shasthamsa/cassie-control/assets/cassie.xml", NULL, NULL, 0);
-    static mjData *model_data;
+    const char *model_path = "assets/cassie.xml";
+    mjModel *model = mj_loadXML(model_path, NULL, NULL, 0);
+    static mjData *model_data = mj_makeData(model);
+
+    double qpos_init[] = {
+        0.0045, 0, 0.4973, 0.9785, -0.0164, 0.0178, -0.2049,
+        -1.1997, 0, 1.4267, 0, -1.5244, 1.5244, -1.5968,
+        -0.0045, 0, 0.4973, 0.9786, 0.0038, -0.0152, -0.2051,
+        -1.1997, 0, 1.4267, 0, -1.5244, 1.5244, -1.5968};
+
+    mju_copy(&model_data->qpos[7], qpos_init, 28);
+    mj_forward(model, model_data);
+
     if (!model)
     {
         std::cerr << "Could not load model" << std::endl;

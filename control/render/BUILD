@@ -7,6 +7,7 @@ cc_library(
     copts = ["-Iexternal/mujoco/include", "-Iexternal/glfw/include"],
     hdrs = ["render.hpp"],
     deps = ["@mujoco", "@glfw"],
+    data = ["//assets:assets"],
     includes = ["external/mujoco/include/mujoco", "external/glfw/include"],
     visibility = ["//visibility:public"],
 )
