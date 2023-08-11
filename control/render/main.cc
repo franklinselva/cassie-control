@@ -10,7 +10,7 @@ static std::mutex mtx;
 int main(int argc, const char **argv)
 {
     // Load the MuJoCo model
-    const char *model_path = "assets/cassie.xml";
+    const char *model_path = "assets/scene.xml";
     mjModel *model = mj_loadXML(model_path, NULL, NULL, 0);
     static mjData *model_data = mj_makeData(model);
 

@@ -4,6 +4,10 @@
 Initial part of the code is adapted from [Cassie IK/ID](https://github.com/p-morais/cassie-ik-id/tree/master).
 This repository contains the code for inverse kinematics and inverse dynamics of a Cassie robot, mainly using MuJoCo and Eigen.
 
+<p float="left">
+  <img src="assets/cassie.png" width="400">
+</p>
+
 ### Installation
 
 To setup the project, you will need to install Bazel in your system. You can find instructions [here](https://docs.bazel.build/versions/master/install.html).
