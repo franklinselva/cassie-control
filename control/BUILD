@@ -1,6 +1,6 @@
 cc_binary(
     name = "main",
-    srcs = ["main.cpp"],
+    srcs = ["main.cc"],
     copts = ["-Iexternal/mujoco/include"],
     data = ["//assets:assets"],
     linkopts = ["-lpthread"],
